@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 export const Form = () => {
   const [appointment, setAppointment] = useState({
@@ -7,6 +8,7 @@ export const Form = () => {
     date: "",
     hour: "",
     symptoms: "",
+    id: "",
   });
   const [ error, setError] = useState(false);
 
@@ -30,6 +32,11 @@ export const Form = () => {
         setError(true);
         return;
     }
+
+    setError(false);
+
+    appointment.id = uuidv4();
+    
 
 
   };
