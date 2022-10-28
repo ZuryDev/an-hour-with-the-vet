@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-export const Form = ({createAppointment}) => {
+export const Form = ({ createAppointment }) => {
   const [appointments, setAppointment] = useState({
     pet: "",
     owner: "",
@@ -10,7 +10,7 @@ export const Form = ({createAppointment}) => {
     symptoms: "",
     id: "",
   });
-  const [ error, setError] = useState(false);
+  const [error, setError] = useState(false);
 
   const updateStatus = (e) => {
     setAppointment({
@@ -24,13 +24,15 @@ export const Form = ({createAppointment}) => {
   const submitAppointment = (e) => {
     e.preventDefault();
 
-    if(pet.trim() === '' ||
-       owner.trim() === '' ||
-       date.trim() === '' ||
-       hour.trim() === '' ||
-       symptoms.trim() === '' ){
-        setError(true);
-        return;
+    if (
+      pet.trim() === "" ||
+      owner.trim() === "" ||
+      date.trim() === "" ||
+      hour.trim() === "" ||
+      symptoms.trim() === ""
+    ) {
+      setError(true);
+      return;
     }
 
     setError(false);
@@ -38,16 +40,26 @@ export const Form = ({createAppointment}) => {
     appointments.id = uuidv4();
 
     createAppointment(appointments);
-    
 
-
+    setAppointment({
+      pet: "",
+      owner: "",
+      date: "",
+      hour: "",
+      symptoms: "",
+      id: "",
+    });
   };
 
   return (
     <Fragment>
       <h2>create appointment</h2>
 
-      {error ? <p className="alert-error">ERROR! <br></br>all data is required</p> :null}
+      {error ? (
+        <p className="alert-error">
+          ERROR! <br></br>all data is required
+        </p>
+      ) : null}
 
       <form onSubmit={submitAppointment}>
         <label>Pet Name</label>
