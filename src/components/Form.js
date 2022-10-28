@@ -1,87 +1,92 @@
-import React, {Fragment, useState} from 'react'
+import React, { Fragment, useState } from "react";
 
 export const Form = () => {
-
   const [appointment, setAppointment] = useState({
-    pet: '',
-    owner: '',
-    date: '',
-    hour: '',
-    symptoms: ''
+    pet: "",
+    owner: "",
+    date: "",
+    hour: "",
+    symptoms: "",
   });
+  const [ error, setError] = useState(false);
 
-  const updateStatus = e => {
+  const updateStatus = (e) => {
     setAppointment({
-        ...appointment,
-        [e.target.name]: e.target.value
-    })
-  }
+      ...appointment,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  const {pet, owner, date, hour, symptoms} = appointment;
+  const { pet, owner, date, hour, symptoms } = appointment;
 
-  const submitAppointment = e => {
+  const submitAppointment = (e) => {
     e.preventDefault();
 
-    
-  }
+    if(pet.trim() === '' ||
+       owner.trim() === '' ||
+       date.trim() === '' ||
+       hour.trim() === '' ||
+       symptoms.trim() === '' ){
+        setError(true);
+        return;
+    }
+
+
+  };
 
   return (
     <Fragment>
-        <h2>create appointment</h2>
+      <h2>create appointment</h2>
 
-        <form
-        onSubmit={submitAppointment}
-        >
-            <label>Pet Name</label>
-            <input
-            type="text"
-            name="pet"
-            className="u-full-width"
-            placeholder="Pet Name"
-            onChange={updateStatus}
-            value={pet}
-            />
-            <label>Pet owner name</label>
-            <input
-            type="text"
-            name="owner"
-            className="u-full-width"
-            placeholder="Pet owner name"
-            onChange={updateStatus}
-            value={owner}
-            />
-            <label>Date</label>
-            <input
-            type="date"
-            name="date"
-            className="u-full-width"
-            onChange={updateStatus}
-            value={date}
-            />
-            <label>Hour</label>
-            <input
-            type="time"
-            name="hour"
-            className="u-full-width"
-            onChange={updateStatus}
-            value={hour}
-            />
-             <label>Symptoms</label>
-            <textarea
-            className="u-full-width"
-            name="symptoms"
-            onChange={updateStatus}
-            value={symptoms}
-            ></textarea>
+      {error ? <p className="alert-error">ERROR! <br></br>all data is required</p> :null}
 
-            <button
-            type="submit"
-            className="u-full-width button-primary"
-            >save appointment</button>
-        </form>
+      <form onSubmit={submitAppointment}>
+        <label>Pet Name</label>
+        <input
+          type="text"
+          name="pet"
+          className="u-full-width"
+          placeholder="Pet Name"
+          onChange={updateStatus}
+          value={pet}
+        />
+        <label>Pet owner name</label>
+        <input
+          type="text"
+          name="owner"
+          className="u-full-width"
+          placeholder="Pet owner name"
+          onChange={updateStatus}
+          value={owner}
+        />
+        <label>Date</label>
+        <input
+          type="date"
+          name="date"
+          className="u-full-width"
+          onChange={updateStatus}
+          value={date}
+        />
+        <label>Hour</label>
+        <input
+          type="time"
+          name="hour"
+          className="u-full-width"
+          onChange={updateStatus}
+          value={hour}
+        />
+        <label>Symptoms</label>
+        <textarea
+          className="u-full-width"
+          name="symptoms"
+          onChange={updateStatus}
+          value={symptoms}
+        ></textarea>
+
+        <button type="submit" className="u-full-width button-primary">
+          save appointment
+        </button>
+      </form>
     </Fragment>
-  )
-}
-
-
-
+  );
+};
