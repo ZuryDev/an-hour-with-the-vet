@@ -51,30 +51,30 @@ input[type="time"] {
   box-sizing: border-box;
 }
 
-.date {
-  padding: 2rem;
+.appointment {
+  padding: 1rem;
   background: #fefefe;
-  border-bottom: 1px solid #F988FF;
+  border: 3px solid #F988FF;
   color: #240426;
 }
 
-.date p {
+.appointment p {
   font-weight: bold;
   margin-bottom: .8rem;
 }
-.date p span {
+.appointment p span {
   font-weight: normal;
 
 }
-.date:first-of-type {
+.appointment:first-of-type {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
-.date:last-of-type {
+.appointment:last-of-type {
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }
-.button.dalete,
+.button.delete,
 .button.delete:hover {
   background-color: #c10059;
   color: white;

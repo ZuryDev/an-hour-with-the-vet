@@ -1,5 +1,6 @@
 import React, {Fragment, useState} from 'react'
 import { Form } from './components/Form';
+import { Appointment } from './components/Appointment';
 
 function App() {
 
@@ -11,6 +12,13 @@ const createAppointment = appointment => {
     appointment
   ]);
 }
+
+const deleteAppointment = id => {
+  const newAppointment = appointments.filter(appointment => appointment.id !== id);
+  saveAppointment(newAppointment)
+}
+
+const title = appointments.length === 0 ? 'no dating' : 'manage your appointments';
 
   return (
     <Fragment>
@@ -24,7 +32,14 @@ const createAppointment = appointment => {
             />
           </div>
           <div className="one-half column">
-          scheduled appointments
+          <h2>{title}</h2>
+          {appointments.map(appointment =>
+            <Appointment
+            key={appointment.id}
+            appointment={appointment}
+            deleteAppointment={deleteAppointment}
+            />
+            )}
           </div>
         </div>
       </div>
