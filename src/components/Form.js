@@ -19,11 +19,19 @@ export const Form = () => {
 
   const {pet, owner, date, hour, symptoms} = appointment;
 
+  const submitAppointment = e => {
+    e.preventDefault();
+
+    
+  }
+
   return (
     <Fragment>
         <h2>create appointment</h2>
 
-        <form>
+        <form
+        onSubmit={submitAppointment}
+        >
             <label>Pet Name</label>
             <input
             type="text"
