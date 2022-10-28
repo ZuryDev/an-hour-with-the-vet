@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-export const Form = () => {
-  const [appointment, setAppointment] = useState({
+export const Form = ({createAppointment}) => {
+  const [appointments, setAppointment] = useState({
     pet: "",
     owner: "",
     date: "",
@@ -14,12 +14,12 @@ export const Form = () => {
 
   const updateStatus = (e) => {
     setAppointment({
-      ...appointment,
+      ...appointments,
       [e.target.name]: e.target.value,
     });
   };
 
-  const { pet, owner, date, hour, symptoms } = appointment;
+  const { pet, owner, date, hour, symptoms } = appointments;
 
   const submitAppointment = (e) => {
     e.preventDefault();
@@ -35,7 +35,9 @@ export const Form = () => {
 
     setError(false);
 
-    appointment.id = uuidv4();
+    appointments.id = uuidv4();
+
+    createAppointment(appointments);
     
 
 
