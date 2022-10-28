@@ -1,0 +1,92 @@
+html {
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: url(https://img.freepik.com/vector-gratis/fondo-colorido-modelo-huellas-pata-perro-o-gato_1017-30662.jpg?w=900&t=st=1666928235~exp=1666928835~hmac=dbf3cfab7f6f46439b3dd77dd8652cb093a9679fa22ecc215f755f596260d949);
+  min-height: 100%;
+  padding-bottom: 5rem;
+}
+h1, h2 {
+  color: #440149;
+  padding: 3rem 0;
+  text-align: center;
+
+  text-transform: uppercase;
+
+  font-family: 'Staatliches', cursive;
+  letter-spacing: 1px;
+}
+.dating-list .media {
+  border-radius: 1px solid #440149;
+  padding-bottom: 3rem;
+}
+.dating-list .media:last-of-type{
+  border-bottom: 0;
+}
+.dating-list .media-body p {
+  margin: 0;
+}
+.dating-list .media-body button {
+  margin-top: 1rem!important;
+}
+.dating-list .media-body span {
+  font-weight: bold;
+}
+
+label {
+  color: #240426;
+}
+
+input[type="date"],
+input[type="time"] {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #FDD8FF;
+  border: 1px solid #F988FF;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.date {
+  padding: 2rem;
+  background: #FDD8FF;
+  border-bottom: 1px solid #F988FF;
+  color: #240426;
+}
+
+.date p {
+  font-weight: bold;
+  margin-bottom: .8rem;
+}
+.date p span {
+  font-weight: normal;
+
+}
+.date:first-of-type {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+.date:last-of-type {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.button.dalete,
+.button.delete:hover {
+  background-color: #c10059;
+  color: white;
+  margin-top: 2rem;
+}
+
+.alert-error {
+  background-color: white;
+  color: red;
+  padding: 1rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-family:  'Staatliches', cursive;
+} 
