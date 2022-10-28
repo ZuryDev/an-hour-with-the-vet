@@ -10,9 +10,14 @@ export const Form = () => {
     symptoms: ''
   });
 
-  const updateStatus = () => {
-    console.log('escribiendo...');
+  const updateStatus = e => {
+    setAppointment({
+        ...appointment,
+        [e.target.name]: e.target.value
+    })
   }
+
+  const {pet, owner, date, hour, symptoms} = appointment;
 
   return (
     <Fragment>
@@ -26,6 +31,7 @@ export const Form = () => {
             className="u-full-width"
             placeholder="Pet Name"
             onChange={updateStatus}
+            value={pet}
             />
             <label>Pet owner name</label>
             <input
@@ -34,6 +40,7 @@ export const Form = () => {
             className="u-full-width"
             placeholder="Pet owner name"
             onChange={updateStatus}
+            value={owner}
             />
             <label>Date</label>
             <input
@@ -41,6 +48,7 @@ export const Form = () => {
             name="date"
             className="u-full-width"
             onChange={updateStatus}
+            value={date}
             />
             <label>Hour</label>
             <input
@@ -48,12 +56,14 @@ export const Form = () => {
             name="hour"
             className="u-full-width"
             onChange={updateStatus}
+            value={hour}
             />
              <label>Symptoms</label>
             <textarea
             className="u-full-width"
-            name="symptons"
+            name="symptoms"
             onChange={updateStatus}
+            value={symptoms}
             ></textarea>
 
             <button
